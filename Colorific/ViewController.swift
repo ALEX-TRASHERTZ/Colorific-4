@@ -9,36 +9,33 @@ import UIKit
 
 class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
     
+    /// ------- CAMPI ------- ///
+    
     // variabili di default per il secondo-controller
     var colorCompMio      : UIColor = UIColor(red: 255.0, green: 255.0, blue: 255.0, alpha: 1.0)
     var colorComp_RGB_mio : String  = ""
     var colorActual       : ColorMio?
-    
     //----------------------------------------------------------------------------------
+    
+    /// ---- OUTLETS (StoryBoard) ---- ///
     
     // bottone
     @IBOutlet var bottone: UIButton!
-    //----------------------------------------------------------------------------------
     
     // ImageView (cella quadrata che cambia Colore)
     @IBOutlet var image: UIImageView!
-    //----------------------------------------------------------------------------------
     
     // label (con i valori RGB del colore random)
     @IBOutlet var myLabel: UILabel!
-    //----------------------------------------------------------------------------------
     
     // label statica RGB
     @IBOutlet var myLabel2: UILabel!
-    //----------------------------------------------------------------------------------
     
     // img Logo
     @IBOutlet var myImage: UIImageView!
-    //----------------------------------------------------------------------------------
     
     // outlet del bottone 'colorComp'
     @IBOutlet var bottoneComp: UIButton!
-    //----------------------------------------------------------------------------------
     
     //
     @IBOutlet var previewViewComp: UIView!
@@ -55,10 +52,12 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
 
         registerForPreviewing(with: self, sourceView: bottoneComp)
     }
+    
     //-----------------------------------------------------------------------------------
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true 
     }
+    
     
     //-----------------------------------------------------------------------------------
     //----- Metodi obbligatori del 'UIViewControllerPreviewingDelegate'------------------
@@ -77,6 +76,7 @@ class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
   
     
     //-----------------------------------------------------------------------------------
+    //----- Metodo per il Bottone-principale che cambia colore random -------------------
     @IBAction func changeColor(_ sender: UIButton) {
         
         let c = ColorMio()
